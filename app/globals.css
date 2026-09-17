@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00bde0;
+  --secondary: #031b4e;
+  --body: #566593;
+  --light: #ecf5fb;
+  --line: #e1ebf1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply font-sans text-body antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-sans font-semibold text-secondary;
+}
+
+.container-cm {
+  @apply mx-auto w-full max-w-[1320px] px-5 lg:px-8;
+}
+
+.section-padding {
+  @apply py-14 md:py-20;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all duration-300;
+}
+.btn-primary {
+  @apply btn bg-primary text-white hover:bg-secondary;
+}
+.btn-secondary {
+  @apply btn bg-secondary text-white hover:bg-primary;
+}
+.btn-outline-light {
+  @apply btn border border-white/40 text-white hover:bg-white hover:text-secondary;
+}
+.btn-lg {
+  @apply px-9 py-4 text-base;
+}
+
+/* ---------- Section head ---------- */
+.section-head .title {
+  @apply text-3xl leading-snug md:text-[40px] md:leading-[1.25];
+}
+
+/* ---------- Cards ---------- */
+.card {
+  @apply rounded-base bg-white p-7 shadow-soft transition-all duration-300;
+}
+.card-hover:hover {
+  @apply -translate-y-1.5 shadow-card;
+}
+
+/* ---------- Icon box ---------- */
+.icon-box {
+  @apply flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary;
+}
+
+/* ---------- Accordion ---------- */
+.faq-item .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+.faq-item.open .faq-answer {
+  grid-template-rows: 1fr;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* ---------- Marquee-ish floating animation ---------- */
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.animate-floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+.animate-floaty-slow {
+  animation: floaty 7s ease-in-out infinite;
+}
+
+/* ---------- Blob / decorative shapes ---------- */
+.blob-primary {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(0, 189, 224, 0.35),
+    rgba(0, 189, 224, 0) 70%
+  );
+}
+.blob-navy {
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(3, 27, 78, 0.18),
+    rgba(3, 27, 78, 0) 70%
+  );
+}
+
+::selection {
+  background: var(--primary);
+  color: #fff;
+}
